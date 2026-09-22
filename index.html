@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portafolio profesional de Manuel Alejandro Millán Aguilar — Director Creativo Senior y Diseñador Visual. Branding, dirección creativa, UX/UI, contenido digital y motion / IA.">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="al3tafari — Dirección Creativa & Diseño Visual">
+<meta property="og:description" content="Director Creativo Senior y Diseñador Visual. Branding, UX/UI, contenido digital y motion / IA.">
+<meta name="twitter:card" content="summary_large_image">
+<title>al3tafari — Manuel Alejandro Millán · Dirección Creativa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a;
+    --bg-card:#131313;
+    --bg-card-hover:#1a1a1a;
+    --line:#2a2a2a;
+    --text:#f5f5f5;
+    --text-dim:#9e9e9e;
+    --accent:#2EE6C5;
+    --font: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    --page-texture: url('assets/asset-01-f4c898fa40f4.jpg');
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background-color:var(--bg);
+    background-image:
+      linear-gradient(rgba(10,10,10,0.45), rgba(10,10,10,0.6)),
+      var(--page-texture);
+    background-size:cover;
+    background-position:top center;
+    background-repeat:repeat-y;
+    color:var(--text);
+    font-family:var(--font);
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  ::selection{background:var(--accent); color:#0a0a0a;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- SCROLL PROGRESS ---------- */
+  .progress{
+    position:fixed; top:0; left:0; height:2px; width:0%;
+    background:var(--accent); z-index:200;
+    transition:width .1s linear;
+  }
+
+  /* ---------- HERO GLOW (mouse-follow, desktop only) ---------- */
+  .glow{
+    position:absolute; inset:0; pointer-events:none; z-index:0;
+    background:radial-gradient(500px circle at var(--gx,50%) var(--gy,20%), rgba(46,230,197,0.10), transparent 60%);
+    opacity:0; transition:opacity .4s ease;
+  }
+  .hero:hover .glow{opacity:1;}
+  .hero > .wrap{position:relative; z-index:1;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(10,10,10,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 0;
+  }
+  .logo{font-weight:800; font-size:1.05rem; letter-spacing:-0.01em;}
+  .logo span{color:var(--accent);}
+  nav ul{list-style:none; display:flex; gap:36px;}
+  nav a{
+    font-size:0.85rem; font-weight:500; color:var(--text-dim);
+    position:relative; padding:4px 0;
+    transition:color .2s ease;
+  }
+  nav a:hover, nav a.active{color:var(--text);}
+  nav a.active::after{
+    content:''; position:absolute; bottom:-2px; left:0; right:0; height:2px;
+    background:var(--accent); border-radius:2px;
+  }
+  .nav-toggle{display:none; background:none; border:none; color:var(--text); font-size:1.5rem; cursor:pointer;}
+
+  @media (max-width:760px){
+    nav ul{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--bg);
+      border-bottom:1px solid var(--line);
+      box-shadow:0 12px 24px -8px rgba(0,0,0,0.5);
+      flex-direction:column; gap:0;
+      padding:8px 24px 16px;
+      max-height:0; overflow:hidden;
+      opacity:0;
+      transition:max-height .3s ease, opacity .25s ease;
+    }
+    nav ul.open{max-height:320px; opacity:1;}
+    nav li{border-bottom:1px solid var(--line);}
+    nav a{display:block; padding:16px 0;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:120px 0 90px;
+    position:relative;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    color:var(--accent); font-weight:700; font-size:0.9rem;
+    margin-bottom:28px;
+    opacity:0; animation:rise .7s ease .1s forwards;
+  }
+  .eyebrow::before{
+    content:''; width:6px; height:6px; border-radius:50%; background:var(--accent);
+  }
+  h1.display{
+    font-size:clamp(2.6rem, 6.5vw, 5.2rem);
+    font-weight:800; letter-spacing:-0.03em; line-height:1.02;
+    max-width:15ch;
+    opacity:0; animation:rise .8s ease .22s forwards;
+  }
+  .hero-sub{
+    margin-top:28px; max-width:640px;
+    font-size:1.15rem; color:var(--text-dim); font-weight:400;
+    opacity:0; animation:rise .8s ease .38s forwards;
+    text-align:justify; text-justify:inter-word; hyphens:auto;
+  }
+  .hero-meta{
+    margin-top:44px; display:flex; flex-wrap:wrap; gap:14px 34px;
+    opacity:0; animation:rise .8s ease .5s forwards;
+  }
+  .hero-meta div{font-size:0.85rem; color:var(--text-dim);}
+  .hero-meta strong{display:block; color:var(--text); font-weight:600; font-size:0.95rem; margin-bottom:2px;}
+  @keyframes rise{ from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:translateY(0);} }
+
+  /* ---------- SCROLL REVEAL (progressive enhancement — visible by default,
+     JS adds .reveal-init to arm the animation, then .in-view to play it.
+     If JS never runs, content stays visible — never depends on JS to show.) ---------- */
+  .reveal-init{
+    opacity:0; transform:translateY(24px);
+    transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
+  }
+  .reveal-init.in-view{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal-init{opacity:1; transform:none; transition:none;}
+  }
+
+  /* ---------- CARD TILT (subtle 3D, desktop pointer only) ---------- */
+  .grid{perspective:1400px;}
+  .card{
+    transform-style:preserve-3d;
+    transition:transform .35s cubic-bezier(.22,.61,.36,1), background .25s ease, border-color .25s ease;
+  }
+  .card-media, .card-body{transform:translateZ(20px);}
+  @media (prefers-reduced-motion: reduce){
+    .card{transition:background .25s ease, border-color .25s ease;}
+  }
+
+  /* ---------- SECTION HEADS ---------- */
+  section{padding:96px 0; border-top:1px solid var(--line);}
+  .section-label{
+    color:var(--accent); font-weight:700; font-size:0.82rem;
+    margin-bottom:18px; display:block;
+  }
+  h2.section-title{
+    font-size:clamp(1.9rem, 4vw, 2.8rem);
+    font-weight:800; letter-spacing:-0.02em;
+    max-width:16ch; margin-bottom:20px;
+  }
+  .section-intro{
+    color:var(--text-dim); max-width:60ch; font-size:1.02rem;
+    text-align:justify; text-justify:inter-word; hyphens:auto;
+  }
+  @media (max-width:640px){
+    .hero-sub, .section-intro{text-align:left; hyphens:none;}
+  }
+
+  /* ---------- WORK GRID ---------- */
+  .grid{
+    margin-top:52px;
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:22px;
+  }
+  @media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .grid{grid-template-columns:1fr;} }
+
+  .card{
+    background:var(--bg-card);
+    border-radius:16px;
+    border:1px solid var(--line);
+    display:flex; flex-direction:column;
+    transition:transform .25s ease, background .25s ease, border-color .25s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .card:hover{transform:translateY(-4px); background:var(--bg-card-hover); border-color:#3a3a3a;}
+
+  /* Image slot — ready to receive a real project photo.
+     Set style="background-image:url('data:image/jpeg;base64,...')" on .card-media
+     and add class "has-img" to remove the placeholder pattern. */
+  .card-media{
+    aspect-ratio: 4 / 3;
+    position:relative;
+    background-color:#1c1c1c;
+    background-image:
+      linear-gradient(135deg, rgba(46,230,197,0.06) 0%, transparent 55%),
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 14px);
+    background-size:cover; background-position:center;
+    display:flex; align-items:flex-end; padding:14px;
+    border-bottom:1px solid var(--line);
+  }
+  .card-media.has-img{background-color:transparent;}
+  .card-media .ph-num{
+    font-size:3.2rem; font-weight:800; color:rgba(255,255,255,0.06);
+    line-height:1; user-select:none;
+  }
+  .card-media.has-img .ph-num{display:none;}
+
+  .card-body{padding:20px 22px 22px; display:flex; flex-direction:column; flex:1;}
+  .card-title{font-weight:700; font-size:1.08rem; line-height:1.25; margin-bottom:6px;}
+  .card-cat{color:var(--text-dim); font-size:0.84rem; margin-bottom:16px;}
+  .card-meta{
+    margin-top:auto;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:0.78rem; color:var(--text-dim);
+    padding-top:14px; border-top:1px solid var(--line);
+  }
+  .card-link{font-weight:600; color:var(--text); font-size:0.82rem; display:inline-flex; align-items:center; gap:6px;}
+  .card-link svg{width:13px; height:13px; transition:transform .2s ease;}
+  .card:hover .card-link svg{transform:translate(2px,-2px);}
+
+  .card-quickview{
+    position:absolute; top:12px; right:12px; z-index:2;
+    width:34px; height:34px; border-radius:50%;
+    background:rgba(10,10,10,0.75); backdrop-filter:blur(4px);
+    border:1px solid rgba(255,255,255,0.12);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text); cursor:pointer;
+    opacity:0; transform:translateY(-4px);
+    transition:opacity .2s ease, transform .2s ease, background .2s ease;
+  }
+  .card:hover .card-quickview{opacity:1; transform:translateY(0);}
+  .card-quickview:hover{background:var(--accent); color:#0a0a0a; border-color:var(--accent);}
+  .card-quickview svg{width:16px; height:16px;}
+
+  /* ---------- QUICK VIEW MODAL ---------- */
+  .qv-overlay{
+    position:fixed; inset:0; z-index:300;
+    background:rgba(0,0,0,0.72); backdrop-filter:blur(3px);
+    display:none; align-items:center; justify-content:center;
+    padding:24px;
+  }
+  .qv-overlay.open{display:flex;}
+  .qv-modal{
+    background:var(--bg-card); border:1px solid var(--line); border-radius:20px;
+    max-width:820px; width:100%; max-height:88vh; overflow-y:auto;
+    display:grid; grid-template-columns:1fr; position:relative;
+  }
+  @media (min-width:700px){ .qv-modal{grid-template-columns:1.1fr 0.9fr;} }
+  .qv-media{
+    aspect-ratio:4/3; background-size:cover; background-position:center;
+    background-color:#1c1c1c;
+    border-radius:20px 20px 0 0;
+  }
+  @media (min-width:700px){ .qv-media{border-radius:20px 0 0 20px; aspect-ratio:auto; height:100%;} }
+  .qv-body{padding:34px;}
+  .qv-close{
+    position:absolute; top:16px; right:16px; z-index:2;
+    width:36px; height:36px; border-radius:50%;
+    background:rgba(10,10,10,0.6); border:1px solid rgba(255,255,255,0.15);
+    color:#fff; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; font-size:1.1rem;
+  }
+  .qv-close:hover{background:var(--accent); color:#0a0a0a;}
+  .qv-num{color:var(--accent); font-weight:700; font-size:0.85rem; margin-bottom:12px;}
+  .qv-title{font-size:1.6rem; font-weight:800; letter-spacing:-0.01em; margin-bottom:6px;}
+  .qv-cat{color:var(--text-dim); font-size:0.95rem; margin-bottom:24px;}
+  .qv-steps{list-style:none; display:flex; flex-direction:column; gap:14px; margin-bottom:28px;}
+  .qv-steps li{
+    display:flex; gap:14px; align-items:flex-start;
+    padding-bottom:14px; border-bottom:1px solid var(--line);
+    font-size:0.92rem; color:var(--text-dim);
+  }
+  .qv-steps li:last-child{border-bottom:none; padding-bottom:0;}
+  .qv-steps b{color:var(--text); min-width:104px; display:inline-block; font-weight:700; font-size:0.78rem;}
+
+  @media (prefers-reduced-motion: reduce){
+    .card-quickview{transition:none;}
+  }
+
+  .card.more{
+    background:transparent; border:1px dashed var(--line);
+    align-items:center; justify-content:center; text-align:center;
+    padding:30px 24px;
+  }
+  .card.more .card-media{display:none;}
+  .card.more .card-body{padding:0; align-items:center; text-align:center;}
+  .card.more:hover{border-color:var(--accent);}
+  .card.more .card-title{font-size:1.15rem;}
+  .card.more .card-cat{margin-bottom:0;}
+
+  .work-cta{margin-top:44px; display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--accent); color:#0a0a0a; font-weight:700; font-size:0.9rem;
+    padding:15px 26px; border-radius:30px; border:none; cursor:pointer;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(46,230,197,0.35);}
+  .btn.ghost{background:transparent; color:var(--text); border:1px solid var(--line);}
+  .btn.ghost:hover{border-color:var(--text); box-shadow:none;}
+
+  /* ---------- ABOUT ---------- */
+  .about-layout{
+    margin-top:48px;
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:start;
+  }
+  @media (max-width:860px){ .about-layout{grid-template-columns:1fr;} }
+  .about-copy p{
+    color:var(--text-dim); font-size:1.05rem; margin-bottom:18px; max-width:56ch;
+    text-align:justify; text-justify:inter-word; hyphens:auto;
+  }
+  @media (max-width:640px){
+    .about-copy p{text-align:left; hyphens:none;}
+  }
+  .about-copy strong{color:var(--text); font-weight:600;}
+  .about-head{display:flex; align-items:center; gap:22px; margin-bottom:20px;}
+  .about-head h2.section-title{margin-bottom:0; max-width:none;}
+  .about-photo{
+    width:88px; height:88px; flex:none; border-radius:50%; object-fit:cover;
+    border:2px solid var(--accent); background:var(--bg-card);
+    box-shadow:0 0 0 6px rgba(46,230,197,0.08);
+  }
+  @media (max-width:640px){ .about-photo{width:64px; height:64px;} .about-head{gap:16px;} }
+  .panel{
+    background:var(--bg-card); border:1px solid var(--line); border-radius:20px;
+    padding:34px;
+  }
+  .panel-eyebrow{color:var(--accent); font-weight:700; font-size:0.85rem; margin-bottom:16px;}
+  .skill-list{list-style:none; display:flex; flex-direction:column; gap:12px;}
+  .skill-list li{
+    font-weight:600; font-size:1.05rem; padding-bottom:12px;
+    border-bottom:1px solid var(--line);
+  }
+  .skill-list li:last-child{border-bottom:none; padding-bottom:0;}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{margin-top:48px; display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media (max-width:760px){ .services-grid{grid-template-columns:1fr;} }
+  .svc{
+    background:var(--bg-card); border:1px solid var(--line); border-radius:16px;
+    padding:30px 28px; transition:border-color .25s ease, background .25s ease, transform .3s ease;
+    position:relative; overflow:hidden;
+  }
+  .svc:hover{border-color:#3a3a3a; background:var(--bg-card-hover); transform:translateY(-3px);}
+  .svc-num{color:var(--accent); font-weight:700; font-size:0.85rem; margin-bottom:14px; position:relative; z-index:1;}
+  .svc h3{font-size:1.3rem; font-weight:700; margin-bottom:10px; letter-spacing:-0.01em; position:relative; z-index:1;}
+  .svc p{color:var(--text-dim); font-size:0.98rem; position:relative; z-index:1;}
+  .svc-icon{
+    position:absolute; right:-18px; bottom:-18px; width:150px; height:150px;
+    opacity:0.09; color:var(--text); pointer-events:none; z-index:0;
+    transition:opacity .3s ease, transform .4s ease;
+    filter:url(#sketchy);
+  }
+  .svc:hover .svc-icon{opacity:0.20; transform:scale(1.06) rotate(4deg); color:var(--accent);}
+  @media (prefers-reduced-motion: reduce){
+    .svc:hover .svc-icon{transform:none;}
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-layout{
+    margin-top:48px; display:grid; grid-template-columns:1.2fr 0.8fr; gap:56px; align-items:start;
+  }
+  @media (max-width:860px){ .contact-layout{grid-template-columns:1fr;} }
+  h2.big-cta{
+    font-size:clamp(2.2rem, 5vw, 3.6rem); font-weight:800; letter-spacing:-0.02em;
+    line-height:1.05; margin-bottom:22px;
+  }
+  .contact-panel{background:var(--bg-card); border:1px solid var(--line); border-radius:20px; padding:34px;}
+  .contact-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 0; border-bottom:1px solid var(--line);
+    font-weight:600; font-size:1.02rem;
+  }
+  .contact-row:last-child{border-bottom:none;}
+  .contact-row a{color:var(--text); transition:color .2s ease;}
+  .contact-row a:hover{color:var(--accent);}
+  .contact-row span.label{color:var(--text-dim); font-weight:500; font-size:0.85rem;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:32px 0; display:flex; justify-content:space-between; align-items:center;
+    color:var(--text-dim); font-size:0.85rem; flex-wrap:wrap; gap:12px;
+  }
+</style>
+<style id="project-images">
+[data-project="manzur"] .card-media{background-image:url('assets/asset-02-89e6c286ee7a.jpg');background-color:transparent;}
+[data-project="manzur"] .card-media .ph-num{display:none;}
+[data-project="ggbox"] .card-media{background-image:url('assets/asset-03-566bb8f5f626.jpg');background-color:transparent;}
+[data-project="ggbox"] .card-media .ph-num{display:none;}
+[data-project="bnp"] .card-media{background-image:url('assets/asset-04-ae46e2b7869a.jpg');background-color:transparent;}
+[data-project="bnp"] .card-media .ph-num{display:none;}
+[data-project="mtb"] .card-media{background-image:url('assets/asset-05-315540d324fb.jpg');background-color:transparent;}
+[data-project="mtb"] .card-media .ph-num{display:none;}
+[data-project="webdesign"] .card-media{background-image:url('assets/asset-06-97e46f1e62f6.jpg');background-color:transparent;}
+[data-project="webdesign"] .card-media .ph-num{display:none;}
+[data-project="catalogos"] .card-media{background-image:url('assets/asset-07-ae9aa4a573ef.jpg');background-color:transparent;}
+[data-project="catalogos"] .card-media .ph-num{display:none;}
+[data-project="gucharas"] .card-media{background-image:url('assets/asset-08-9c3acd2881b5.jpg');background-color:transparent;}
+[data-project="gucharas"] .card-media .ph-num{display:none;}
+[data-project="ciclolondo"] .card-media{background-image:url('assets/asset-09-85497c53fe88.jpg');background-color:transparent;}
+[data-project="ciclolondo"] .card-media .ph-num{display:none;}
+</style>
+<style id="motion-page">
+  .svc-link{display:block; cursor:pointer; border-color:rgba(46,230,197,0.35);}
+  .svc-link:hover{border-color:var(--accent);}
+  .svc-more{
+    display:inline-flex; align-items:center; gap:8px; margin-top:18px;
+    color:var(--accent); font-weight:700; font-size:0.9rem; position:relative; z-index:1;
+  }
+  .svc-more svg{transition:transform .25s ease;}
+  .svc-link:hover .svc-more svg{transform:translate(2px,-2px);}
+
+  #motionPage{display:none;}
+  body.view-motion #motionPage{display:block;}
+  body.view-motion #top{display:none;}
+
+  #motionPage section, #motionPage article{border-top:none; padding:0;}
+
+  /* --- hero --- */
+  .mo-hero{padding:56px 0 24px;}
+  .mo-hero-grid{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr); gap:48px; align-items:center;}
+  .mo-back{
+    display:inline-flex; align-items:center; gap:8px; font-size:0.9rem; font-weight:600;
+    color:var(--text-dim); margin-bottom:28px; transition:color .2s ease;
+  }
+  .mo-back:hover{color:var(--text);}
+  .mo-title{
+    font-size:clamp(3.2rem, 9.5vw, 7.4rem); font-weight:800; letter-spacing:-0.035em; line-height:0.98;
+    opacity:0; animation:rise .8s ease .1s forwards;
+  }
+  .mo-lead{
+    margin-top:30px; max-width:54ch; color:var(--text-dim); font-size:1.12rem;
+    text-align:justify; text-justify:inter-word; hyphens:auto;
+    opacity:0; animation:rise .8s ease .25s forwards;
+  }
+  .mo-jump{margin-top:34px; display:flex; flex-wrap:wrap; gap:12px; opacity:0; animation:rise .8s ease .4s forwards;}
+  .mo-jump a{
+    border:1px solid var(--line); border-radius:30px; padding:10px 18px;
+    font-size:0.88rem; font-weight:600; color:var(--text);
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .mo-jump a:hover{border-color:var(--accent); color:var(--accent);}
+  .mo-portrait{
+    margin:0; justify-self:end; width:min(100%,340px);
+    -webkit-mask-image:radial-gradient(ellipse 60% 68% at 50% 40%, #000 62%, transparent 100%);
+            mask-image:radial-gradient(ellipse 60% 68% at 50% 40%, #000 62%, transparent 100%);
+    animation:moSettle 1.3s cubic-bezier(.2,.7,.2,1) .15s both;
+  }
+  .mo-portrait img{width:100%; height:auto;}
+  @keyframes moSettle{from{opacity:0; transform:scale(1.05); filter:blur(8px);} to{opacity:1; transform:none; filter:none;}}
+
+  /* --- essays --- */
+  .mo-essay{padding:88px 0 0 !important; scroll-margin-top:76px;}
+  .mo-essay + .mo-essay{margin-top:24px;}
+  .mo-head{display:block; margin-bottom:36px; padding-top:40px; border-top:1px solid var(--line);}
+  .mo-head h2{font-size:clamp(1.7rem, 3.6vw, 2.6rem); font-weight:800; letter-spacing:-0.02em; line-height:1.1; max-width:20ch;}
+  .mo-head p{
+    margin-top:16px; max-width:62ch; color:var(--text-dim); font-size:1.05rem;
+    text-align:justify; text-justify:inter-word; hyphens:auto;
+  }
+
+  .mo-frame{
+    position:relative; border-radius:18px; overflow:hidden; background:#000;
+    border:1px solid var(--line);
+  }
+  .mo-frame video{display:block; width:100%; height:100%; object-fit:cover; cursor:pointer;}
+  .mo-frame video:focus-visible{outline:2px solid var(--accent); outline-offset:-2px;}
+  .mo-fig{margin:0;}
+  .mo-fig figcaption{margin-top:12px; font-size:0.92rem; color:var(--text-dim);}
+  .mo-fig figcaption strong{color:var(--text); font-weight:600; margin-right:8px;}
+  .mo-sound{
+    position:absolute; right:12px; bottom:12px; width:40px; height:40px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(10,10,10,0.72); border:1px solid var(--line); color:var(--text);
+    backdrop-filter:blur(6px); transition:border-color .2s ease, color .2s ease;
+  }
+  .mo-sound:hover{border-color:var(--accent); color:var(--accent);}
+  .mo-sound .on{display:none;}
+  .mo-sound[aria-pressed="true"] .on{display:block;}
+  .mo-sound[aria-pressed="true"] .off{display:none;}
+  .mo-sound[aria-pressed="true"]{color:var(--accent); border-color:var(--accent);}
+
+  .mo-wide .mo-frame{aspect-ratio:16/9;}
+  .mo-split{
+    display:grid; grid-template-columns:minmax(0,1fr) auto; gap:56px; align-items:start;
+    border-top:1px solid var(--line); padding-top:40px;
+  }
+  .mo-split .mo-head{border-top:none; padding-top:0; margin-bottom:0; position:sticky; top:104px;}
+  .mo-split .mo-head p{text-align:left; hyphens:none;}
+  .mo-pair{display:flex; gap:24px; justify-content:flex-end; align-items:flex-start;}
+  .mo-pair .mo-fig{flex:0 1 auto;}
+  .mo-pair .mo-frame{height:min(72vh,660px); aspect-ratio:9/16;}
+
+  .mo-board{
+    margin-top:44px; display:grid; grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr); gap:44px; align-items:center;
+  }
+  .mo-board-img{
+    display:block; width:100%; padding:0; border:1px solid var(--line); border-radius:18px; overflow:hidden;
+    background:#000; cursor:zoom-in; transition:border-color .2s ease;
+  }
+  .mo-board-img:hover{border-color:var(--accent);}
+  .mo-board-img img{width:100%; height:auto;}
+  .mo-board-copy h3{font-size:1.25rem; font-weight:700; letter-spacing:-0.01em;}
+  .mo-board-copy p{
+    margin-top:12px; max-width:52ch; color:var(--text-dim);
+    text-align:justify; text-justify:inter-word; hyphens:auto;
+  }
+  .mo-board-copy .mo-hint{margin-top:18px; font-size:0.85rem; color:var(--text-dim); text-align:left;}
+
+  .mo-cta{margin-top:96px; padding:72px 0 88px !important; border-top:1px solid var(--line) !important;}
+  .mo-cta h2{font-size:clamp(1.9rem, 4.4vw, 3.2rem); font-weight:800; letter-spacing:-0.025em; line-height:1.08; max-width:18ch;}
+  .mo-cta p{margin-top:16px; color:var(--text-dim); max-width:54ch; font-size:1.05rem;}
+
+  /* --- lightbox --- */
+  .mo-lb{position:fixed; inset:0; z-index:300; display:none; align-items:center; justify-content:center; padding:24px; background:rgba(0,0,0,0.92);}
+  .mo-lb.open{display:flex;}
+  .mo-lb img{max-width:min(94vw,94vh); max-height:94vh; width:auto; height:auto; border-radius:8px;}
+  .mo-lb-close{
+    position:absolute; top:16px; right:16px; width:44px; height:44px; border-radius:50%;
+    border:1px solid var(--line); background:rgba(20,20,20,0.9); color:var(--text); font-size:1.3rem; line-height:1;
+  }
+  .mo-lb-close:hover{border-color:var(--accent); color:var(--accent);}
+
+  @media (max-width:980px){
+    .mo-split{grid-template-columns:1fr; gap:32px;}
+    .mo-split .mo-head{position:static;}
+    .mo-pair{justify-content:center;}
+  }
+  @media (max-width:860px){
+    .mo-hero-grid{grid-template-columns:1fr; gap:36px;}
+    .mo-portrait{justify-self:center; width:min(100%,320px);}
+    .mo-board{grid-template-columns:1fr; gap:24px;}
+    .mo-back{margin-bottom:36px;}
+  }
+  @media (max-width:640px){
+    .mo-pair{flex-direction:column; align-items:stretch; gap:28px;}
+    .mo-pair .mo-frame{height:auto; aspect-ratio:9/16; width:100%;}
+    .mo-lead, .mo-head p, .mo-board-copy p{text-align:left; hyphens:none;}
+    .mo-essay{padding-top:56px !important;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .mo-title, .mo-lead, .mo-jump, .mo-portrait{animation:none; opacity:1; filter:none; transform:none;}
+  }
+</style>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="sketchy" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="4.5" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="progress" id="progressBar"></div>
+
+<header>
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo">al3<span>tafari</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+    <nav>
+      <ul id="navList">
+        <li><a href="#work">WORK</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none;" id="heroSection">
+    <div class="glow" id="heroGlow"></div>
+    <div class="wrap">
+      <span class="eyebrow">DISPONIBLE PARA PROYECTOS FREELANCE</span>
+      <h1 class="display">Dirección creativa con visión de diseño visual.</h1>
+      <p class="hero-sub">
+        Manuel Alejandro Millán Aguilar — Director Creativo Senior y Diseñador Visual.
+        Más de 15 años conectando estrategia de marca con sistemas visuales de alto impacto:
+        branding, contenido digital, UX/UI y dirección de arte.
+      </p>
+      <div class="hero-meta">
+        <div><strong>15+ años</strong>Dirección creativa & branding</div>
+        <div><strong>a.estudiocreativo</strong>Estudio propio</div>
+        <div><strong>Remoto / Freelance</strong>Disponible ahora</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <span class="section-label reveal">SELECTED WORK</span>
+      <h2 class="section-title reveal">Proyectos seleccionados</h2>
+      <p class="section-intro">
+        Una selección curada de identidad de marca, sistemas visuales, contenido digital
+        y comunicación de campaña, extraída directamente de mi portafolio en Behance.
+      </p>
+
+      <div class="grid reveal">
+
+        <a class="card" data-project="manzur" href="https://www.behance.net/gallery/189296699/MANZUR-COL" target="_blank" rel="noopener">
+          <div class="card-media">
+            <span class="ph-num">01</span>
+          
+            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Manzur</div>
+            <div class="card-cat">Identidad de marca / estrategia visual</div>
+            <div class="card-meta">
+              <span>3.9k views</span>
+              <span class="card-link">Ver en Behance
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card" data-project="bnp" href="https://www.behance.net/gallery/254763071/bnp" target="_blank" rel="noopener">
+          <div class="card-media">
+            <span class="ph-num">02</span>
+          
+            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="card-title">BPN | Publicidad</div>
+            <div class="card-cat">Identidad visual / comunicación de marca</div>
+            <div class="card-meta">
+              <span>3.6k views</span>
+              <span class="card-link">Ver en Behance
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card" data-project="webdesign" href="https://www.behance.net/gallery/254953643/Diseno-web-Mzr-Col" target="_blank" rel="noopener">
+          <div class="card-media">
+            <span class="ph-num">03</span>
+          
+            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="card-title">MZR — Diseño Web</div>
+            <div class="card-cat">UX/UI / sitio web</div>
+            <div class="card-meta">
+              <span>88 views</span>
+              <span class="card-link">Ver en Behance
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card" data-project="catalogos" href="https://www.behance.net/gallery/254857801/MZR-Catalogos" target="_blank" rel="noopener">
+          <div class="card-media">
+            <span class="ph-num">04</span>
+          
+            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="card-title">MZR — Catálogos</div>
+            <div class="card-cat">Diseño editorial / producto</div>
+            <div class="card-meta">
+              <span>88 views</span>
+              <span class="card-link">Ver en Behance
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card" data-project="gucharas" href="https://www.behance.net/gallery/254760591/Guacharas" target="_blank" rel="noopener">
+          <div class="card-media">
+            <span class="ph-num">05</span>
+          
+            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Guácharas de Monagas</div>
+            <div class="card-cat">Identidad de marca deportiva</div>
+            <div class="card-meta">
+              <span>66 views</span>
+              <span class="card-link">Ver en Behance
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card" data-project="mtb" href="https://www.behance.net/gallery/254791477/MZR-RIDE-MTB" target="_blank" rel="noopener">
+          <div class="card-media">
+            <span class="ph-num">06</span>
+          
+            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="card-title">MZR Ride MTB</div>
+            <div class="card-cat">Campaña deportiva / downhill</div>
+            <div class="card-meta">
+              <span>44 views</span>
+              <span class="card-link">Ver en Behance
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card" data-project="ggbox" href="https://www.behance.net/gallery/245204383/GG-BOX-APPAREL" target="_blank" rel="noopener">
+          <div class="card-media">
+            <span class="ph-num">07</span>
+          
+            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="card-title">GG Box Apparel</div>
+            <div class="card-cat">Branding / apparel deportivo</div>
+            <div class="card-meta">
+              <span>Behance</span>
+              <span class="card-link">Ver en Behance
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card" data-project="ciclolondo" href="https://www.behance.net/gallery/245031105/CicloLondo" target="_blank" rel="noopener">
+          <div class="card-media">
+            <span class="ph-num">08</span>
+          
+            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="card-title">CicloLondo</div>
+            <div class="card-cat">Retail / branding deportivo</div>
+            <div class="card-meta">
+              <span>Behance</span>
+              <span class="card-link">Ver en Behance
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card more" href="https://www.behance.net/al3millan" target="_blank" rel="noopener">
+          <div class="card-body">
+            <div class="card-title">Más proyectos →</div>
+            <div class="card-cat" style="margin-bottom:0;">LAC, MZR International Ambassadors y más — portafolio completo en Behance</div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="work-cta">
+        <a class="btn" href="https://www.behance.net/al3millan" target="_blank" rel="noopener">
+          Ver portafolio completo
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+        </a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/al3millan" target="_blank" rel="noopener">Ver LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <span class="section-label reveal">PROFILE / EXPERIENCE</span>
+      <div class="about-head reveal">
+        <img class="about-photo" src="assets/asset-10-ae1a436ac880.png" alt="Manuel Alejandro Millán Aguilar" width="88" height="88">
+        <h2 class="section-title">Perfil</h2>
+      </div>
+
+      <div class="about-layout reveal">
+        <div class="about-copy">
+          <p>
+            Soy director creativo y diseñador visual. Convierto la estrategia de una marca en un sistema
+            visual que se reconoce, se entiende y se sostiene en el tiempo, con <strong>más de 15 años</strong>
+            de trayectoria haciéndolo.
+          </p>
+          <p>
+            Trabajo en la unión entre pensamiento estratégico, dirección de arte y producción —de la identidad
+            de marca al contenido digital y las experiencias UX/UI— para que cada pieza responda a un objetivo
+            de negocio y no solo se vea bien.
+          </p>
+          <p>
+            Hoy sigo ampliando mi oficio con <strong>Motion Design, After Effects y Figma</strong>, y sumo flujos
+            con IA a mi proceso creativo y de producción.
+          </p>
+        </div>
+
+        <div class="panel">
+          <div class="panel-eyebrow">SENIOR CREATIVE DIRECTOR</div>
+          <ul class="skill-list">
+            <li>Brand identity</li>
+            <li>Creative direction</li>
+            <li>Visual content</li>
+            <li>UX/UI & experiencias digitales</li>
+            <li>Dirección de arte</li>
+            <li>Motion / IA / experimentación</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <span class="section-label reveal">WHAT I CAN BUILD WITH YOU</span>
+      <h2 class="section-title reveal">Servicios</h2>
+
+      <div class="services-grid reveal">
+        <div class="svc">
+          <svg class="svc-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M48,12 C22,14 9,34 13,55 C17,77 42,90 63,84 C87,77 92,52 78,34 C68,21 54,18 48,26"/>
+  <path d="M46,14 C24,17 12,36 16,54"/>
+  <line x1="40" y1="46" x2="58" y2="52"/>
+  <line x1="52" y1="38" x2="46" y2="58"/>
+</svg>
+          <h3>Brand Identity</h3>
+          <p>Estrategia, identidad visual, sistemas de logotipo, guidelines y aplicaciones.</p>
+        </div>
+        <div class="svc">
+          <svg class="svc-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M50,10 C54,28 50,40 50,50"/>
+  <path d="M50,50 C64,42 78,38 92,32"/>
+  <path d="M50,50 C60,62 66,74 74,90"/>
+  <path d="M50,50 C34,58 22,66 8,76"/>
+  <path d="M50,50 C40,36 30,26 18,14"/>
+  <circle cx="50" cy="50" r="6" fill="none"/>
+</svg>
+          <h3>Creative Direction</h3>
+          <p>Desarrollo de concepto, dirección de arte, campañas y sistemas visuales.</p>
+        </div>
+        <div class="svc">
+          <svg class="svc-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M10,16 L91,14 C93,14 94,15 94,18 L92,82 C92,85 90,86 88,86 L11,88 C9,88 8,86 8,84 L9,18 C9,16 10,16 10,16 Z"/>
+  <path d="M9,32 L93,30"/>
+  <path d="M20,50 C35,48 55,52 70,49"/>
+  <path d="M20,62 C30,61 40,63 48,61"/>
+</svg>
+          <h3>Digital / UX-UI</h3>
+          <p>Experiencias web, dirección de interfaz, estructura de información y diseño visual.</p>
+        </div>
+        <div class="svc">
+          <svg class="svc-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M10,30 C24,24 46,20 56,26 C60,36 58,54 52,60 C38,66 16,62 10,54 C7,46 8,36 10,30 Z"/>
+  <path d="M14,42 L48,34" stroke-dasharray="0.5 6"/>
+  <path d="M40,52 C54,48 74,46 86,52 C90,60 88,76 82,82 C70,86 50,84 44,78 C41,70 40,60 40,52 Z"/>
+</svg>
+          <h3>Visual Content</h3>
+          <p>Editorial, contenido social, presentaciones, campañas y sistemas de contenido.</p>
+        </div>
+        <a class="svc svc-link" href="#motion-ia" aria-label="Motion / IA: ver ensayos">
+          <svg class="svc-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M8,86 C22,70 18,52 34,46 C48,41 50,60 64,54 C78,48 76,26 92,16"/>
+  <circle cx="8" cy="86" r="3.2"/>
+  <circle cx="34" cy="46" r="3.2"/>
+  <circle cx="64" cy="54" r="3.2"/>
+  <circle cx="92" cy="16" r="3.2"/>
+</svg>
+          <h3>Motion / IA</h3>
+          <p>Motion design, experimentación creativa y flujos emergentes de trabajo con IA.</p>
+        
+          <span class="svc-more">Ver ensayos
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+          </span>
+        </a>
+        <div class="svc">
+          <svg class="svc-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M9,9 L34,10 L33,35 L8,34 Z"/>
+  <path d="M42,10 L91,9 L90,27 L41,28 Z"/>
+  <path d="M9,44 L26,45 L25,91 L8,90 Z"/>
+  <path d="M35,36 L65,35 L66,65 L34,66 Z"/>
+  <path d="M74,36 L91,37 L90,92 L73,91 Z"/>
+</svg>
+          <h3>Design Systems</h3>
+          <p>Reglas visuales reutilizables, componentes y activos de marca escalables.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <span class="section-label reveal">LET'S WORK TOGETHER</span>
+      <div class="contact-layout">
+        <div>
+          <h2 class="big-cta reveal">¿Tienes un proyecto en mente?</h2>
+          <p class="section-intro">
+            Para colaboraciones freelance, dirección creativa, branding, experiencias digitales
+            o contenido visual — empecemos por el problema que necesitas resolver.
+          </p>
+          <div class="work-cta">
+            <a class="btn" href="mailto:al3millan@gmail.com">
+              Iniciar una conversación
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-panel">
+          <div class="panel-eyebrow">ONLINE</div>
+          <div class="contact-row">
+            <span class="label">Email</span>
+            <a href="mailto:al3millan@gmail.com">al3millan@gmail.com</a>
+          </div>
+          <div class="contact-row">
+            <span class="label">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/al3millan" target="_blank" rel="noopener">al3millan</a>
+          </div>
+          <div class="contact-row">
+            <span class="label">Behance</span>
+            <a href="https://www.behance.net/al3millan" target="_blank" rel="noopener">al3millan</a>
+          </div>
+          <div class="contact-row">
+            <span class="label">Teléfono</span>
+            <a href="tel:+573222806356">+57 322 280 6356</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<main id="motion-ia">
+  <section class="mo-hero">
+    <div class="wrap">
+      <a class="mo-back" href="#services">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Volver a servicios
+      </a>
+    </div>
+    <div class="wrap mo-hero-grid">
+      <div>
+        <h1 class="mo-title">Motion / IA</h1>
+        <p class="mo-lead">
+          Ensayos donde pruebo cómo una imagen fija cambia de forma. Parto de un storyboard y lo llevo a
+          movimiento con flujos de IA. El hilo común: papel, origami y mariposas que se deshacen y vuelven
+          a formar un rostro.
+        </p>
+        <div class="mo-jump">
+          <a href="#ensayo-origami">Papel y origami</a>
+          <a href="#ensayo-malla">Retrato y malla</a>
+        </div>
+      </div>
+      <figure class="mo-portrait">
+        <img src="assets/asset-11-0177f11b39cc.webp" alt="Retrato de un hombre con barba hecho de papel doblado, con camiseta de patrón geométrico" width="640" height="1198">
+      </figure>
+    </div>
+  </section>
+
+  <article class="mo-essay" id="ensayo-origami">
+    <div class="wrap">
+      <div class="mo-head">
+        <h2>De una bola de papel a un retrato</h2>
+        <p>
+          Una bola de papel arrugado se despliega hasta formar un busto de origami en tonos cálidos,
+          que al final se deshace en mariposas.
+        </p>
+      </div>
+      <figure class="mo-fig mo-wide">
+        <div class="mo-frame">
+            <video muted loop playsinline preload="metadata" tabindex="0" aria-label="Papel arrugado que se transforma en origami" poster="assets/asset-12-5261204ea910.jpg" src="assets/asset-13-0f7e1a57e2fb.mp4"></video>
+            <button class="mo-sound" type="button" aria-pressed="false" aria-label="Activar sonido de Papel arrugado que se transforma en origami">
+              <svg class="off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+              <svg class="on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+            </button>
+          </div>
+        <figcaption><strong>Papel a origami</strong>10 s · horizontal</figcaption>
+      </figure>
+      <div class="mo-board">
+        <button class="mo-board-img" type="button" data-lightbox aria-label="Ampliar storyboard en color">
+          <img src="assets/asset-14-9c345f468787.jpg" alt="Storyboard en color de nueve cuadros: papel arrugado, retrato de origami, fragmentación y mariposas sobre fondo negro" width="1600" height="1600">
+        </button>
+        <div class="mo-board-copy">
+          <h3>El guion en color</h3>
+          <p>
+            Nueve cuadros que fijan el recorrido antes de animar: las bolas de papel, el retrato completo,
+            el momento en que se fragmenta y las mariposas que quedan flotando sobre el fondo negro.
+          </p>
+          <p class="mo-hint">Toca la imagen para verla en grande.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="mo-essay" id="ensayo-malla">
+    <div class="wrap">
+      <div class="mo-split">
+      <div class="mo-head">
+        <h2>Un rostro de papel que se vuelve malla</h2>
+        <p>
+          El retrato en papel blanco se fragmenta en mariposas y se recompone. En el otro extremo del guion,
+          la cabeza queda reducida a una estructura metálica que gira sobre su eje.
+        </p>
+      </div>
+      <div class="mo-pair">
+        <figure class="mo-fig">
+          <div class="mo-frame">
+            <video muted loop playsinline preload="metadata" tabindex="0" aria-label="Fragmentos de papel que forman un retrato" poster="assets/asset-15-98626eeef309.jpg" src="assets/asset-16-7fcf71bb7117.mp4"></video>
+            <button class="mo-sound" type="button" aria-pressed="false" aria-label="Activar sonido de Fragmentos de papel que forman un retrato">
+              <svg class="off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+              <svg class="on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+            </button>
+          </div>
+          <figcaption><strong>Fragmentos que forman un retrato</strong>10 s · vertical</figcaption>
+        </figure>
+        <figure class="mo-fig">
+          <div class="mo-frame">
+            <video muted loop playsinline preload="metadata" tabindex="0" aria-label="Cabeza de malla metálica girando" poster="assets/asset-17-8c6497fbc441.jpg" src="assets/asset-18-f3f34379c0cc.mp4"></video>
+            <button class="mo-sound" type="button" aria-pressed="false" aria-label="Activar sonido de Cabeza de malla metálica girando">
+              <svg class="off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+              <svg class="on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+            </button>
+          </div>
+          <figcaption><strong>Cabeza en malla metálica</strong>10 s · vertical</figcaption>
+        </figure>
+      </div>
+      </div>
+      <div class="mo-board">
+        <button class="mo-board-img" type="button" data-lightbox aria-label="Ampliar storyboard en blanco y negro">
+          <img src="assets/asset-19-e6014c7a4de5.jpg" alt="Storyboard en blanco y negro de nueve cuadros: busto poligonal de papel que se disuelve en mariposas y termina como una malla de líneas" width="1600" height="1600">
+        </button>
+        <div class="mo-board-copy">
+          <h3>El guion en blanco y negro</h3>
+          <p>
+            Un busto poligonal se abre por la mitad, se disuelve en mariposas de papel y deja al final
+            solo una retícula de líneas. Es la secuencia que ordena las dos animaciones de arriba.
+          </p>
+          <p class="mo-hint">Toca la imagen para verla en grande.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <section class="mo-cta">
+    <div class="wrap">
+      <h2>¿Un proyecto que pida movimiento?</h2>
+      <p>Cuéntame la idea y vemos cómo llevarla de la página al movimiento.</p>
+      <div class="work-cta">
+        <a class="btn" href="mailto:al3millan@gmail.com">
+          Iniciar una conversación
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+        </a>
+        <a class="btn ghost" href="#services">Volver a servicios</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="mo-lb" id="moLightbox" role="dialog" aria-modal="true" aria-label="Storyboard ampliado">
+  <button class="mo-lb-close" type="button" id="moLbClose" aria-label="Cerrar">×</button>
+  <img id="moLbImg" src="" alt="">
+</div>
+
+<!-- QUICK VIEW MODAL -->
+<div class="qv-overlay" id="qvOverlay">
+  <div class="qv-modal">
+    <button class="qv-close" id="qvClose" aria-label="Cerrar">✕</button>
+    <div class="qv-media" id="qvMedia"></div>
+    <div class="qv-body">
+      <div class="qv-num" id="qvNum"></div>
+      <div class="qv-title" id="qvTitle"></div>
+      <div class="qv-cat" id="qvCat"></div>
+      <ul class="qv-steps">
+        <li><b>CONTEXTO</b><span id="qvContext"></span></li>
+        <li><b>CONCEPTO</b><span id="qvConcept"></span></li>
+        <li><b>SISTEMA</b><span id="qvSystem"></span></li>
+        <li><b>APLICACIONES</b><span id="qvApps"></span></li>
+      </ul>
+      <a class="btn" id="qvLink" href="#" target="_blank" rel="noopener">
+        Ver caso completo en Behance
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:12px;">
+    <span>al3tafari — Manuel Alejandro Millán · Dirección Creativa / Diseño Visual</span>
+    <span>Remoto · Freelance · Basado en contenido real de Behance</span>
+  </div>
+</footer>
+
+<script>
+  // Shared feature-detection flags, declared once at top level so every block below can use them.
+  var prefersReduced = false, isTouch = false;
+  try { prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e) {}
+  try { isTouch = window.matchMedia('(hover: none)').matches; } catch(e) {}
+
+  // Nav mobile toggle
+  try {
+    var navToggle = document.getElementById('navToggle');
+    var navList = document.getElementById('navList');
+    if (navToggle && navList) {
+      navToggle.addEventListener('click', function(){ navList.classList.toggle('open'); });
+      navList.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){ navList.classList.remove('open'); });
+      });
+    }
+  } catch (err) {}
+
+  // Active nav link on scroll
+  try {
+    var sections = document.querySelectorAll('section[id]');
+    var navLinks = document.querySelectorAll('nav a');
+    var setActive = function () {
+      var current = '';
+      sections.forEach(function(sec){
+        var rect = sec.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) current = sec.id;
+      });
+      navLinks.forEach(function(link){
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    };
+    document.addEventListener('scroll', setActive, { passive: true });
+    setActive();
+  } catch (err) {}
+
+  // Scroll progress bar
+  try {
+    var progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+      var updateProgress = function () {
+        var h = document.documentElement;
+        var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+        progressBar.style.width = scrolled + '%';
+      };
+      document.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+    }
+  } catch (err) {}
+
+  // Hero mouse-follow glow (desktop only, respects reduced motion)
+  try {
+    var heroSection = document.getElementById('heroSection');
+    if (heroSection && !prefersReduced && !isTouch) {
+      heroSection.addEventListener('mousemove', function(e){
+        var rect = heroSection.getBoundingClientRect();
+        var x = ((e.clientX - rect.left) / rect.width) * 100;
+        var y = ((e.clientY - rect.top) / rect.height) * 100;
+        heroSection.style.setProperty('--gx', x + '%');
+        heroSection.style.setProperty('--gy', y + '%');
+      });
+    }
+  } catch (err) {}
+
+  // Quick view (project detail modal)
+  try {
+    var qvData = {
+      manzur: {
+        num: "01", title: "Manzur", cat: "Identidad de marca / estrategia visual",
+        href: "https://www.behance.net/gallery/189296699/MANZUR-COL",
+        context: "Marca que necesitaba una identidad visual sólida y coherente.",
+        concept: "Sistema visual construido desde el nombre y su carácter deportivo.",
+        system: "Logotipo, paleta y tipografía aplicados de forma consistente.",
+        apps: "Aplicaciones de marca en distintos formatos y soportes."
+      },
+      bnp: {
+        num: "02", title: "BPN | Publicidad", cat: "Identidad visual / comunicación de marca",
+        href: "https://www.behance.net/gallery/254763071/bnp",
+        context: "Proyecto de comunicación visual para una marca de publicidad.",
+        concept: "Identidad construida sobre un símbolo distintivo y memorable.",
+        system: "Sistema gráfico aplicado sobre texturas y fondos de marca.",
+        apps: "Piezas de comunicación y aplicaciones visuales de marca."
+      },
+      webdesign: {
+        num: "03", title: "MZR — Diseño Web", cat: "UX/UI / sitio web",
+        href: "https://www.behance.net/gallery/254953643/Diseno-web-Mzr-Col",
+        context: "Necesidad de una presencia web coherente con la identidad MZR.",
+        concept: "Diseño de interfaz alineado al sistema visual de marca.",
+        system: "Estructura de página, jerarquía visual y componentes UI.",
+        apps: "Sitio web funcional como extensión digital de la marca."
+      },
+      catalogos: {
+        num: "04", title: "MZR — Catálogos", cat: "Diseño editorial / producto",
+        href: "https://www.behance.net/gallery/254857801/MZR-Catalogos",
+        context: "Presentación de producto en formato catálogo impreso/digital.",
+        concept: "Diseño editorial que organiza producto e información de forma clara.",
+        system: "Grilla editorial, tipografía y tratamiento visual del producto.",
+        apps: "Catálogo listo para producción e impresión."
+      },
+      gucharas: {
+        num: "05", title: "Guácharas de Monagas", cat: "Identidad de marca deportiva",
+        href: "https://www.behance.net/gallery/254760591/Guacharas",
+        context: "Identidad visual para un equipo/club deportivo.",
+        concept: "Símbolo y naming con fuerte carácter regional y deportivo.",
+        system: "Logotipo, colores de club y variantes de aplicación.",
+        apps: "Uniformes, gráfica de equipo y comunicación del club."
+      },
+      mtb: {
+        num: "06", title: "MZR Ride MTB", cat: "Campaña deportiva / downhill",
+        href: "https://www.behance.net/gallery/254791477/MZR-RIDE-MTB",
+        context: "Campaña visual para contenido de ciclismo de montaña.",
+        concept: "Comunicación con energía visual asociada al deporte extremo.",
+        system: "Logotipo de campaña con paleta cálida tipo atardecer.",
+        apps: "Contenido de campaña y gráfica para comunicación deportiva."
+      },
+      ggbox: {
+        num: "07", title: "GG Box Apparel", cat: "Branding / apparel deportivo",
+        href: "https://www.behance.net/gallery/245204383/GG-BOX-APPAREL",
+        context: "Marca de apparel que necesitaba una identidad con carácter.",
+        concept: "Símbolo geométrico con textura y acabado gráfico distintivo.",
+        system: "Logotipo, tipografía de soporte y sistema de marca.",
+        apps: "Aplicación en prendas y piezas de comunicación de marca."
+      },
+      ciclolondo: {
+        num: "08", title: "CicloLondo", cat: "Retail / branding deportivo",
+        href: "https://www.behance.net/gallery/245031105/CicloLondo",
+        context: "Identidad para un negocio retail del sector ciclismo.",
+        concept: "Comunicación visual centrada en la experiencia del ciclista.",
+        system: "Logotipo, tipografía y paleta aplicados al punto de venta.",
+        apps: "Gráfica de marca para comunicación y punto de venta."
+      }
+    };
+
+    var qvOverlay = document.getElementById('qvOverlay');
+    var qvMedia = document.getElementById('qvMedia');
+    var qvNum = document.getElementById('qvNum');
+    var qvTitle = document.getElementById('qvTitle');
+    var qvCat = document.getElementById('qvCat');
+    var qvContext = document.getElementById('qvContext');
+    var qvConcept = document.getElementById('qvConcept');
+    var qvSystem = document.getElementById('qvSystem');
+    var qvApps = document.getElementById('qvApps');
+    var qvLink = document.getElementById('qvLink');
+    var qvClose = document.getElementById('qvClose');
+    var lastFocused = null;
+
+    if (qvOverlay && qvMedia && qvNum && qvTitle && qvCat && qvContext && qvConcept && qvSystem && qvApps && qvLink && qvClose) {
+      var openQuickView = function (projectKey, mediaEl) {
+        var d = qvData[projectKey];
+        if (!d) return;
+        qvNum.textContent = d.num;
+        qvTitle.textContent = d.title;
+        qvCat.textContent = d.cat;
+        qvContext.textContent = d.context;
+        qvConcept.textContent = d.concept;
+        qvSystem.textContent = d.system;
+        qvApps.textContent = d.apps;
+        qvLink.href = d.href;
+        qvMedia.style.backgroundImage = mediaEl ? getComputedStyle(mediaEl).backgroundImage : 'none';
+        lastFocused = document.activeElement;
+        qvOverlay.classList.add('open');
+        qvClose.focus();
+        document.body.style.overflow = 'hidden';
+      };
+      var closeQuickView = function () {
+        qvOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+        if (lastFocused) lastFocused.focus();
+      };
+
+      document.querySelectorAll('[data-qv-trigger]').forEach(function(btn){
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          var card = btn.closest('[data-project]');
+          if (!card) return;
+          var media = card.querySelector('.card-media');
+          openQuickView(card.getAttribute('data-project'), media);
+        });
+      });
+      qvClose.addEventListener('click', closeQuickView);
+      qvOverlay.addEventListener('click', function(e){ if (e.target === qvOverlay) closeQuickView(); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && qvOverlay.classList.contains('open')) closeQuickView(); });
+    }
+  } catch (err) {}
+
+  // Scroll reveal — progressive enhancement: JS arms the elements, then reveals them.
+  // If this code never runs (script error/blocked), elements were never hidden — always safe.
+  try {
+    if (!prefersReduced) {
+      var revealEls = document.querySelectorAll('.reveal');
+      revealEls.forEach(function(el){ el.classList.add('reveal-init'); });
+      var revealObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+      revealEls.forEach(function(el){ revealObserver.observe(el); });
+    }
+  } catch (err) { /* reveal is purely decorative — never let it block the page */ }
+
+  // Subtle 3D tilt on project cards (desktop pointer only)
+  try {
+    if (!prefersReduced && !isTouch) {
+      document.querySelectorAll('.card:not(.more)').forEach(function(card){
+        card.addEventListener('mousemove', function(e){
+          var rect = card.getBoundingClientRect();
+          var px = (e.clientX - rect.left) / rect.width - 0.5;
+          var py = (e.clientY - rect.top) / rect.height - 0.5;
+          var rotateY = px * 8;
+          var rotateX = -py * 8;
+          card.style.transform = 'translateY(-4px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+        });
+        card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
+      });
+    }
+  } catch (err) {}
+</script>
+
+<script>
+  // Motion / IA page — view switching, video playback, lightbox
+  (function(){
+    var body = document.body;
+    var page = document.getElementById('motion-ia');
+    var homeTitle = document.title;
+    var vids = page ? page.querySelectorAll('video') : [];
+
+    function isMotion(h){ return h === '#motion-ia'; }
+
+    function route(h){
+      h = h || location.hash;
+      var was = body.classList.contains('view-motion');
+      var now = isMotion(h);
+      body.classList.toggle('view-motion', now);
+      document.title = now ? 'Motion / IA — al3tafari' : homeTitle;
+      if (now) {
+        window.scrollTo(0, 0);
+      } else {
+        vids.forEach(function(v){ v.pause(); });
+        if (was) {
+          var t = null;
+          try { t = h ? document.querySelector(h) : null; } catch(e) {}
+          if (t) { t.scrollIntoView(); } else { window.scrollTo(0, 0); }
+        }
+      }
+    }
+
+    function go(h){
+      try { location.hash = h; } catch(e) {}
+      route(h);
+    }
+
+    document.addEventListener('click', function(e){
+      var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+      if (!a) return;
+      var h = a.getAttribute('href');
+      if (h === '#motion-ia') { e.preventDefault(); go(h); return; }
+      if (body.classList.contains('view-motion')) {
+        var t = null;
+        try { t = document.querySelector(h); } catch(err) {}
+        if (t && page.contains(t)) return;   // jump link inside the Motion page: native scroll
+        e.preventDefault(); go(h);            // nav / logo / back links: return to the main page
+      }
+    });
+    window.addEventListener('hashchange', function(){ route(); });
+    route();
+
+    // Videos: play only while visible; sound is opt-in
+    vids.forEach(function(v){
+      var frame = v.closest('.mo-frame');
+      var btn = frame ? frame.querySelector('.mo-sound') : null;
+      if (prefersReduced) { v.controls = true; }
+      function toggle(){
+        if (v.paused) { v.dataset.userPaused = ''; delete v.dataset.userPaused; v.play().catch(function(){}); }
+        else { v.dataset.userPaused = '1'; v.pause(); }
+      }
+      v.addEventListener('click', toggle);
+      v.addEventListener('keydown', function(e){ if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); } });
+      if (btn) btn.addEventListener('click', function(){
+        v.muted = !v.muted;
+        btn.setAttribute('aria-pressed', v.muted ? 'false' : 'true');
+        btn.setAttribute('aria-label', (v.muted ? 'Activar' : 'Silenciar') + ' sonido de ' + v.getAttribute('aria-label'));
+        if (!v.muted && v.paused) { delete v.dataset.userPaused; v.play().catch(function(){}); }
+      });
+    });
+    try {
+      if (!prefersReduced && vids.length) {
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(en){
+            var v = en.target;
+            if (en.isIntersecting && body.classList.contains('view-motion') && !v.dataset.userPaused) {
+              var p = v.play(); if (p && p.catch) p.catch(function(){});
+            } else { v.pause(); }
+          });
+        }, { threshold: 0.35 });
+        vids.forEach(function(v){ io.observe(v); });
+      }
+    } catch(err) {}
+
+    // Lightbox for storyboards
+    var lb = document.getElementById('moLightbox');
+    var lbImg = document.getElementById('moLbImg');
+    var lbClose = document.getElementById('moLbClose');
+    var lastFocus = null;
+    function openLb(btn){
+      var img = btn.querySelector('img');
+      lbImg.src = img.src; lbImg.alt = img.alt;
+      lastFocus = btn; lb.classList.add('open'); lbClose.focus();
+    }
+    function closeLb(){
+      lb.classList.remove('open'); lbImg.src = '';
+      if (lastFocus) lastFocus.focus();
+    }
+    document.querySelectorAll('[data-lightbox]').forEach(function(b){ b.addEventListener('click', function(){ openLb(b); }); });
+    lbClose.addEventListener('click', closeLb);
+    lb.addEventListener('click', function(e){ if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && lb.classList.contains('open')) closeLb(); });
+  })();
+</script>
+</body>
+</html>
