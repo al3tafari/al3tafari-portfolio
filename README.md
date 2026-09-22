@@ -1,11 +1,11 @@
-# al3tafari — portfolio
+# a.estudiocreativo — portfolio
 
-Static portfolio ready for GitHub Pages.
+Portafolio profesional de Manuel Alejandro Millán Aguilar.
 
-## Publish
-1. Create or connect a GitHub repository.
-2. Upload the contents of this folder to the repository root.
-3. In **Settings → Pages**, choose **Deploy from a branch**, branch `main`, folder `/ (root)`.
-4. Open the generated Pages URL.
+## Publicación
 
-The site uses relative asset paths and includes `.nojekyll` for static hosting.
+Este proyecto está preparado para GitHub Pages. La página principal es `index.html`.
+
+## Identidad
+
+El logotipo e ícono oficiales usados en el sitio son los archivos `assets/a-estudiocreativo-logo.svg` y `assets/a-estudiocreativo-logo.png`.

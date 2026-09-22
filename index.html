@@ -7,10 +7,10 @@
 <meta name="theme-color" content="#0a0a0a">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
-<meta property="og:title" content="al3tafari — Dirección Creativa & Diseño Visual">
+<meta property="og:title" content="a.estudiocreativo — Dirección Creativa & Diseño Visual">
 <meta property="og:description" content="Director Creativo Senior y Diseñador Visual. Branding, UX/UI, contenido digital y motion / IA.">
 <meta name="twitter:card" content="summary_large_image">
-<title>al3tafari — Manuel Alejandro Millán · Dirección Creativa</title>
+<title>a.estudiocreativo — Manuel Alejandro Millán · Dirección Creativa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -84,8 +84,9 @@
     display:flex; align-items:center; justify-content:space-between;
     padding:20px 0;
   }
-  .logo{font-weight:800; font-size:1.05rem; letter-spacing:-0.01em;}
-  .logo span{color:var(--accent);}
+  .logo{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.05rem; letter-spacing:-0.02em;}
+  .logo-mark{width:40px; height:30px; object-fit:contain; display:block;}
+  .logo-name{color:var(--text);}
   nav ul{list-style:none; display:flex; gap:36px;}
   nav a{
     font-size:0.85rem; font-weight:500; color:var(--text-dim);
@@ -570,7 +571,7 @@
     .mo-title, .mo-lead, .mo-jump, .mo-portrait{animation:none; opacity:1; filter:none; transform:none;}
   }
 </style>
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/a-estudiocreativo-logo.svg" type="image/svg+xml">
 </head>
 <body>
 
@@ -585,7 +586,7 @@
 
 <header>
   <div class="wrap nav-inner">
-    <a href="#top" class="logo">al3<span>tafari</span></a>
+    <a href="#top" class="logo" aria-label="a.estudiocreativo — inicio"><img src="assets/a-estudiocreativo-logo.svg" alt="a.estudiocreativo" class="logo-mark"><span class="logo-name">a.estudiocreativo</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
     <nav>
       <ul id="navList">
@@ -1130,7 +1131,7 @@
 
 <footer>
   <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:12px;">
-    <span>al3tafari — Manuel Alejandro Millán · Dirección Creativa / Diseño Visual</span>
+    <span>a.estudiocreativo — Manuel Alejandro Millán · Dirección Creativa / Diseño Visual</span>
     <span>Remoto · Freelance · Basado en contenido real de Behance</span>
   </div>
 </footer>
@@ -1372,7 +1373,7 @@
       var was = body.classList.contains('view-motion');
       var now = isMotion(h);
       body.classList.toggle('view-motion', now);
-      document.title = now ? 'Motion / IA — al3tafari' : homeTitle;
+      document.title = now ? 'Motion / IA — a.estudiocreativo' : homeTitle;
       if (now) {
         window.scrollTo(0, 0);
       } else {
