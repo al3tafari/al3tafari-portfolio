@@ -81,13 +81,15 @@
     border-bottom:1px solid var(--line);
   }
   .nav-inner{
-    display:flex; align-items:center; justify-content:space-between;
+    display:flex; align-items:center; justify-content:space-between; gap:28px;
     padding:20px 0;
   }
-  .logo{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.05rem; letter-spacing:-0.02em;}
-  .logo-mark{width:40px; height:30px; object-fit:contain; display:block;}
-  .logo-name{color:var(--text);}
-  nav ul{list-style:none; display:flex; gap:36px;}
+  .logo{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.05rem; letter-spacing:-0.02em; min-width:0;}
+  .logo-mark{width:40px; height:30px; object-fit:contain; display:block; flex:0 0 auto;}
+  .logo-name{color:var(--text); white-space:nowrap;}
+  .logo-dot{color:var(--accent);}
+  nav{margin-left:auto;}
+  nav ul{list-style:none; display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:12px 28px; margin:0; padding:0;}
   nav a{
     font-size:0.85rem; font-weight:500; color:var(--text-dim);
     position:relative; padding:4px 0;
@@ -98,24 +100,34 @@
     content:''; position:absolute; bottom:-2px; left:0; right:0; height:2px;
     background:var(--accent); border-radius:2px;
   }
-  .nav-toggle{display:none; background:none; border:none; color:var(--text); font-size:1.5rem; cursor:pointer;}
+  .nav-toggle{display:none; background:none; border:1px solid var(--line); border-radius:10px; color:var(--text); font-size:1.25rem; line-height:1; cursor:pointer; padding:9px 11px;}
+
+  @media (max-width:900px){
+    .nav-inner{gap:18px;}
+    nav ul{gap:10px 20px;}
+  }
 
   @media (max-width:760px){
+    .nav-inner{padding:14px 0;}
+    .logo-mark{width:38px; height:28px;}
+    .logo-name{font-size:.98rem;}
+    nav{margin-left:0;}
     nav ul{
       position:absolute; top:100%; left:0; right:0;
-      background:var(--bg);
+      background:rgba(10,10,10,0.98);
       border-bottom:1px solid var(--line);
       box-shadow:0 12px 24px -8px rgba(0,0,0,0.5);
-      flex-direction:column; gap:0;
+      flex-direction:column; align-items:stretch; gap:0;
       padding:8px 24px 16px;
       max-height:0; overflow:hidden;
-      opacity:0;
+      opacity:0; pointer-events:none;
       transition:max-height .3s ease, opacity .25s ease;
     }
-    nav ul.open{max-height:320px; opacity:1;}
-    nav li{border-bottom:1px solid var(--line);}
-    nav a{display:block; padding:16px 0;}
-    .nav-toggle{display:block;}
+    nav ul.open{max-height:340px; opacity:1; pointer-events:auto;}
+    nav li{border-bottom:1px solid var(--line); width:100%;}
+    nav li:last-child{border-bottom:0;}
+    nav a{display:block; padding:15px 0;}
+    .nav-toggle{display:block; flex:0 0 auto;}
   }
 
   /* ---------- HERO ---------- */
@@ -586,13 +598,14 @@
 
 <header>
   <div class="wrap nav-inner">
-    <a href="#top" class="logo" aria-label="a.estudiocreativo — inicio"><img src="assets/a-estudiocreativo-logo.svg" alt="a.estudiocreativo" class="logo-mark"><span class="logo-name">a.estudiocreativo</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+    <a href="#top" class="logo" aria-label="a.estudiocreativo — inicio"><img src="assets/a-estudiocreativo-logo.svg" alt="a.estudiocreativo" class="logo-mark"><span class="logo-name">a<span class="logo-dot">.</span>estudiocreativo</span></a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navList" aria-label="Abrir menú">☰</button>
     <nav>
       <ul id="navList">
         <li><a href="#work">WORK</a></li>
         <li><a href="#about">ABOUT</a></li>
         <li><a href="#services">SERVICES</a></li>
+        <li><a href="motion-lab.html">MOTION LAB</a></li>
         <li><a href="#contact">CONTACT</a></li>
       </ul>
     </nav>
@@ -901,7 +914,7 @@
           <h3>Visual Content</h3>
           <p>Editorial, contenido social, presentaciones, campañas y sistemas de contenido.</p>
         </div>
-        <a class="svc svc-link" href="#motion-ia" aria-label="Motion / IA: ver ensayos">
+        <a class="svc svc-link" href="motion-lab.html" aria-label="Motion Lab: ver ensayos de animación">
           <svg class="svc-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
   <path d="M8,86 C22,70 18,52 34,46 C48,41 50,60 64,54 C78,48 76,26 92,16"/>
   <circle cx="8" cy="86" r="3.2"/>
@@ -943,8 +956,8 @@
             o contenido visual — empecemos por el problema que necesitas resolver.
           </p>
           <div class="work-cta">
-            <a class="btn" href="mailto:al3millan@gmail.com">
-              Iniciar una conversación
+            <a class="btn" href="https://wa.me/573222806356?text=Hola%20Manuel%2C%20vi%20tu%20portfolio%20de%20a.estudiocreativo%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener noreferrer" aria-label="Iniciar una conversación por WhatsApp">
+              Iniciar una conversación por WhatsApp
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
             </a>
           </div>
@@ -965,8 +978,8 @@
             <a href="https://www.behance.net/al3millan" target="_blank" rel="noopener">al3millan</a>
           </div>
           <div class="contact-row">
-            <span class="label">Teléfono</span>
-            <a href="tel:+573222806356">+57 322 280 6356</a>
+            <span class="label">WhatsApp</span>
+            <a href="https://wa.me/573222806356?text=Hola%20Manuel%2C%20vi%20tu%20portfolio%20de%20a.estudiocreativo%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener noreferrer">+57 322 280 6356</a>
           </div>
         </div>
       </div>
@@ -1147,9 +1160,24 @@
     var navToggle = document.getElementById('navToggle');
     var navList = document.getElementById('navList');
     if (navToggle && navList) {
-      navToggle.addEventListener('click', function(){ navList.classList.toggle('open'); });
+      navToggle.addEventListener('click', function(){
+        var isOpen = navList.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+        navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+      });
       navList.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){ navList.classList.remove('open'); });
+        a.addEventListener('click', function(){
+          navList.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.setAttribute('aria-label', 'Abrir menú');
+        });
+      });
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape') {
+          navList.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.setAttribute('aria-label', 'Abrir menú');
+        }
       });
     }
   } catch (err) {}
