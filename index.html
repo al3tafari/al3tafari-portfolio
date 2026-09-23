@@ -7,10 +7,10 @@
 <meta name="theme-color" content="#0a0a0a">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
-<meta property="og:title" content="a.estudiocreativo — Dirección Creativa & Diseño Visual">
+<meta property="og:title" content="estudiocreativo — Dirección Creativa & Diseño Visual">
 <meta property="og:description" content="Director Creativo Senior y Diseñador Visual. Branding, UX/UI, contenido digital y motion / IA.">
 <meta name="twitter:card" content="summary_large_image">
-<title>a.estudiocreativo — Manuel Alejandro Millán · Dirección Creativa</title>
+<title>estudiocreativo — Manuel Alejandro Millán · Dirección Creativa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -85,8 +85,8 @@
     padding:20px 0;
   }
   .logo{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.05rem; letter-spacing:-0.02em; min-width:0;}
-  .logo-mark{width:40px; height:30px; object-fit:contain; display:block; flex:0 0 auto;}
-  .logo-name{color:var(--text); white-space:nowrap;}
+  .logo-mark{width:52px; height:40px; object-fit:contain; display:block; flex:0 0 auto;}
+  .logo-name{color:var(--text); white-space:nowrap; display:inline-flex; align-items:baseline; gap:0; font-weight:800;} .logo-word-accent{color:var(--accent);}
   .logo-dot{color:var(--accent);}
   nav{margin-left:auto;}
   nav ul{list-style:none; display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:12px 28px; margin:0; padding:0;}
@@ -109,7 +109,7 @@
 
   @media (max-width:760px){
     .nav-inner{padding:14px 0;}
-    .logo-mark{width:38px; height:28px;}
+    .logo-mark{width:46px; height:36px;}
     .logo-name{font-size:.98rem;}
     nav{margin-left:0;}
     nav ul{
@@ -423,6 +423,34 @@
     color:var(--text-dim); font-size:0.85rem; flex-wrap:wrap; gap:12px;
   }
 </style>
+<style id="kinetic-showcase">
+  .kinetic-showcase{margin:46px 0 58px; border:1px solid var(--line); border-radius:24px; background:#070707; overflow:hidden; position:relative;}
+  .kinetic-showcase::before{content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(46,230,197,.05), transparent 22%, transparent 78%, rgba(46,230,197,.04)); pointer-events:none;}
+  .kinetic-head,.kinetic-foot{display:flex; justify-content:space-between; align-items:center; gap:18px; padding:18px 20px; position:relative; z-index:1;}
+  .kinetic-head{border-bottom:1px solid var(--line);} .kinetic-head strong{display:block; margin-top:3px; font-size:1rem; letter-spacing:-.01em;}
+  .kinetic-head > span,.kinetic-foot{font-size:.72rem; color:var(--text-dim); letter-spacing:.12em;}
+  .kinetic-window{overflow:hidden; padding:14px 0 10px;}
+  .kinetic-track{display:flex; width:max-content; gap:14px; animation:kineticScroll 30s linear infinite;}
+  .kinetic-showcase:hover .kinetic-track{animation-play-state:paused;}
+  .kinetic-item{position:relative; width:clamp(220px,24vw,320px); aspect-ratio:4/5; border-radius:18px; overflow:hidden; flex:0 0 auto; background:#111; border:1px solid #202020; transform:skewY(0deg); transition:transform .35s ease,border-color .35s ease;}
+  .kinetic-item:nth-child(2n){transform:translateY(18px);} .kinetic-item:nth-child(3n){transform:translateY(-12px);}
+  .kinetic-item:hover{transform:translateY(-10px) scale(1.02); border-color:rgba(46,230,197,.65); z-index:2;}
+  .kinetic-item img{width:100%;height:100%;object-fit:cover;filter:saturate(.86) contrast(1.05);transition:transform .5s ease,filter .5s ease;}
+  .kinetic-item:hover img{transform:scale(1.06);filter:saturate(1.05) contrast(1.08);}
+  .kinetic-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.78) 100%);pointer-events:none;}
+  .kinetic-overlay{position:absolute;left:14px;right:14px;bottom:14px;display:flex;justify-content:space-between;align-items:end;color:#fff;z-index:1;font-size:.74rem;letter-spacing:.1em;}
+  .kinetic-overlay b{color:var(--accent);font-weight:800;} .kinetic-overlay em{font-style:normal;font-weight:700;}
+  .kinetic-foot{border-top:1px solid var(--line);}
+  @keyframes kineticScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (max-width:760px){.kinetic-head,.kinetic-foot{padding:14px 16px;}.kinetic-head>span,.kinetic-foot span:last-child{display:none;}.kinetic-item{width:220px;}.kinetic-track{gap:10px;animation-duration:24s;}}
+  @media (prefers-reduced-motion:reduce){.kinetic-track{animation:none!important;}.kinetic-window{overflow-x:auto;scrollbar-width:thin;}.kinetic-item:nth-child(2n),.kinetic-item:nth-child(3n){transform:none;}}
+
+  .footer-inner{display:flex; justify-content:space-between; align-items:center; width:100%; flex-wrap:wrap; gap:18px;}
+  .footer-brand{display:flex; align-items:center; gap:10px; font-weight:700; color:var(--text);}
+  .footer-brand img{width:34px; height:28px; object-fit:contain;}
+  .footer-word-accent{color:var(--accent);}
+  @media (max-width:640px){.footer-inner{align-items:flex-start;}.footer-brand{align-items:flex-start;}.footer-brand img{width:38px;height:30px;}}
+</style>
 <style id="project-images">
 [data-project="manzur"] .card-media{background-image:url('assets/asset-02-89e6c286ee7a.jpg');background-color:transparent;}
 [data-project="manzur"] .card-media .ph-num{display:none;}
@@ -441,148 +469,7 @@
 [data-project="ciclolondo"] .card-media{background-image:url('assets/asset-09-85497c53fe88.jpg');background-color:transparent;}
 [data-project="ciclolondo"] .card-media .ph-num{display:none;}
 </style>
-<style id="motion-page">
-  .svc-link{display:block; cursor:pointer; border-color:rgba(46,230,197,0.35);}
-  .svc-link:hover{border-color:var(--accent);}
-  .svc-more{
-    display:inline-flex; align-items:center; gap:8px; margin-top:18px;
-    color:var(--accent); font-weight:700; font-size:0.9rem; position:relative; z-index:1;
-  }
-  .svc-more svg{transition:transform .25s ease;}
-  .svc-link:hover .svc-more svg{transform:translate(2px,-2px);}
 
-  #motionPage{display:none;}
-  body.view-motion #motionPage{display:block;}
-  body.view-motion #top{display:none;}
-
-  #motionPage section, #motionPage article{border-top:none; padding:0;}
-
-  /* --- hero --- */
-  .mo-hero{padding:56px 0 24px;}
-  .mo-hero-grid{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr); gap:48px; align-items:center;}
-  .mo-back{
-    display:inline-flex; align-items:center; gap:8px; font-size:0.9rem; font-weight:600;
-    color:var(--text-dim); margin-bottom:28px; transition:color .2s ease;
-  }
-  .mo-back:hover{color:var(--text);}
-  .mo-title{
-    font-size:clamp(3.2rem, 9.5vw, 7.4rem); font-weight:800; letter-spacing:-0.035em; line-height:0.98;
-    opacity:0; animation:rise .8s ease .1s forwards;
-  }
-  .mo-lead{
-    margin-top:30px; max-width:54ch; color:var(--text-dim); font-size:1.12rem;
-    text-align:justify; text-justify:inter-word; hyphens:auto;
-    opacity:0; animation:rise .8s ease .25s forwards;
-  }
-  .mo-jump{margin-top:34px; display:flex; flex-wrap:wrap; gap:12px; opacity:0; animation:rise .8s ease .4s forwards;}
-  .mo-jump a{
-    border:1px solid var(--line); border-radius:30px; padding:10px 18px;
-    font-size:0.88rem; font-weight:600; color:var(--text);
-    transition:border-color .2s ease, color .2s ease;
-  }
-  .mo-jump a:hover{border-color:var(--accent); color:var(--accent);}
-  .mo-portrait{
-    margin:0; justify-self:end; width:min(100%,340px);
-    -webkit-mask-image:radial-gradient(ellipse 60% 68% at 50% 40%, #000 62%, transparent 100%);
-            mask-image:radial-gradient(ellipse 60% 68% at 50% 40%, #000 62%, transparent 100%);
-    animation:moSettle 1.3s cubic-bezier(.2,.7,.2,1) .15s both;
-  }
-  .mo-portrait img{width:100%; height:auto;}
-  @keyframes moSettle{from{opacity:0; transform:scale(1.05); filter:blur(8px);} to{opacity:1; transform:none; filter:none;}}
-
-  /* --- essays --- */
-  .mo-essay{padding:88px 0 0 !important; scroll-margin-top:76px;}
-  .mo-essay + .mo-essay{margin-top:24px;}
-  .mo-head{display:block; margin-bottom:36px; padding-top:40px; border-top:1px solid var(--line);}
-  .mo-head h2{font-size:clamp(1.7rem, 3.6vw, 2.6rem); font-weight:800; letter-spacing:-0.02em; line-height:1.1; max-width:20ch;}
-  .mo-head p{
-    margin-top:16px; max-width:62ch; color:var(--text-dim); font-size:1.05rem;
-    text-align:justify; text-justify:inter-word; hyphens:auto;
-  }
-
-  .mo-frame{
-    position:relative; border-radius:18px; overflow:hidden; background:#000;
-    border:1px solid var(--line);
-  }
-  .mo-frame video{display:block; width:100%; height:100%; object-fit:cover; cursor:pointer;}
-  .mo-frame video:focus-visible{outline:2px solid var(--accent); outline-offset:-2px;}
-  .mo-fig{margin:0;}
-  .mo-fig figcaption{margin-top:12px; font-size:0.92rem; color:var(--text-dim);}
-  .mo-fig figcaption strong{color:var(--text); font-weight:600; margin-right:8px;}
-  .mo-sound{
-    position:absolute; right:12px; bottom:12px; width:40px; height:40px; border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    background:rgba(10,10,10,0.72); border:1px solid var(--line); color:var(--text);
-    backdrop-filter:blur(6px); transition:border-color .2s ease, color .2s ease;
-  }
-  .mo-sound:hover{border-color:var(--accent); color:var(--accent);}
-  .mo-sound .on{display:none;}
-  .mo-sound[aria-pressed="true"] .on{display:block;}
-  .mo-sound[aria-pressed="true"] .off{display:none;}
-  .mo-sound[aria-pressed="true"]{color:var(--accent); border-color:var(--accent);}
-
-  .mo-wide .mo-frame{aspect-ratio:16/9;}
-  .mo-split{
-    display:grid; grid-template-columns:minmax(0,1fr) auto; gap:56px; align-items:start;
-    border-top:1px solid var(--line); padding-top:40px;
-  }
-  .mo-split .mo-head{border-top:none; padding-top:0; margin-bottom:0; position:sticky; top:104px;}
-  .mo-split .mo-head p{text-align:left; hyphens:none;}
-  .mo-pair{display:flex; gap:24px; justify-content:flex-end; align-items:flex-start;}
-  .mo-pair .mo-fig{flex:0 1 auto;}
-  .mo-pair .mo-frame{height:min(72vh,660px); aspect-ratio:9/16;}
-
-  .mo-board{
-    margin-top:44px; display:grid; grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr); gap:44px; align-items:center;
-  }
-  .mo-board-img{
-    display:block; width:100%; padding:0; border:1px solid var(--line); border-radius:18px; overflow:hidden;
-    background:#000; cursor:zoom-in; transition:border-color .2s ease;
-  }
-  .mo-board-img:hover{border-color:var(--accent);}
-  .mo-board-img img{width:100%; height:auto;}
-  .mo-board-copy h3{font-size:1.25rem; font-weight:700; letter-spacing:-0.01em;}
-  .mo-board-copy p{
-    margin-top:12px; max-width:52ch; color:var(--text-dim);
-    text-align:justify; text-justify:inter-word; hyphens:auto;
-  }
-  .mo-board-copy .mo-hint{margin-top:18px; font-size:0.85rem; color:var(--text-dim); text-align:left;}
-
-  .mo-cta{margin-top:96px; padding:72px 0 88px !important; border-top:1px solid var(--line) !important;}
-  .mo-cta h2{font-size:clamp(1.9rem, 4.4vw, 3.2rem); font-weight:800; letter-spacing:-0.025em; line-height:1.08; max-width:18ch;}
-  .mo-cta p{margin-top:16px; color:var(--text-dim); max-width:54ch; font-size:1.05rem;}
-
-  /* --- lightbox --- */
-  .mo-lb{position:fixed; inset:0; z-index:300; display:none; align-items:center; justify-content:center; padding:24px; background:rgba(0,0,0,0.92);}
-  .mo-lb.open{display:flex;}
-  .mo-lb img{max-width:min(94vw,94vh); max-height:94vh; width:auto; height:auto; border-radius:8px;}
-  .mo-lb-close{
-    position:absolute; top:16px; right:16px; width:44px; height:44px; border-radius:50%;
-    border:1px solid var(--line); background:rgba(20,20,20,0.9); color:var(--text); font-size:1.3rem; line-height:1;
-  }
-  .mo-lb-close:hover{border-color:var(--accent); color:var(--accent);}
-
-  @media (max-width:980px){
-    .mo-split{grid-template-columns:1fr; gap:32px;}
-    .mo-split .mo-head{position:static;}
-    .mo-pair{justify-content:center;}
-  }
-  @media (max-width:860px){
-    .mo-hero-grid{grid-template-columns:1fr; gap:36px;}
-    .mo-portrait{justify-self:center; width:min(100%,320px);}
-    .mo-board{grid-template-columns:1fr; gap:24px;}
-    .mo-back{margin-bottom:36px;}
-  }
-  @media (max-width:640px){
-    .mo-pair{flex-direction:column; align-items:stretch; gap:28px;}
-    .mo-pair .mo-frame{height:auto; aspect-ratio:9/16; width:100%;}
-    .mo-lead, .mo-head p, .mo-board-copy p{text-align:left; hyphens:none;}
-    .mo-essay{padding-top:56px !important;}
-  }
-  @media (prefers-reduced-motion: reduce){
-    .mo-title, .mo-lead, .mo-jump, .mo-portrait{animation:none; opacity:1; filter:none; transform:none;}
-  }
-</style>
 <link rel="icon" href="assets/a-estudiocreativo-logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -598,7 +485,7 @@
 
 <header>
   <div class="wrap nav-inner">
-    <a href="#top" class="logo" aria-label="a.estudiocreativo — inicio"><img src="assets/a-estudiocreativo-logo.svg" alt="a.estudiocreativo" class="logo-mark"><span class="logo-name">a<span class="logo-dot">.</span>estudiocreativo</span></a>
+    <a href="#top" class="logo" aria-label="estudiocreativo — inicio"><img src="assets/a-estudiocreativo-logo.svg" alt="Ícono a. de estudiocreativo" class="logo-mark"><span class="logo-name"><span>estudio</span><span class="logo-word-accent">creativo</span></span></a>
     <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navList" aria-label="Abrir menú">☰</button>
     <nav>
       <ul id="navList">
@@ -627,7 +514,7 @@
       </p>
       <div class="hero-meta">
         <div><strong>15+ años</strong>Dirección creativa & branding</div>
-        <div><strong>a.estudiocreativo</strong>Estudio propio</div>
+        <div><strong>estudiocreativo</strong>Estudio propio</div>
         <div><strong>Remoto / Freelance</strong>Disponible ahora</div>
       </div>
     </div>
@@ -642,6 +529,61 @@
         Una selección curada de identidad de marca, sistemas visuales, contenido digital
         y comunicación de campaña, extraída directamente de mi portafolio en Behance.
       </p>
+
+      <div class="kinetic-showcase reveal" aria-label="Muestra cinética de proyectos seleccionados">
+        <div class="kinetic-head">
+          <div>
+            <span class="section-label">KINETIC CASE REEL</span>
+            <strong>Selección en movimiento</strong>
+          </div>
+          <span>HOVER / TAP · BEHANCE CASES</span>
+        </div>
+        <div class="kinetic-window">
+          <div class="kinetic-track">
+            <a class="kinetic-item" href="https://www.behance.net/gallery/189296699/MANZUR-COL" target="_blank" rel="noopener">
+              <img src="assets/asset-02-89e6c286ee7a.jpg" alt="Manzur — identidad de marca">
+              <span class="kinetic-overlay"><b>01</b><em>MANZUR</em></span>
+            </a>
+            <a class="kinetic-item" href="https://www.behance.net/gallery/254763071/bnp" target="_blank" rel="noopener">
+              <img src="assets/asset-04-ae46e2b7869a.jpg" alt="BPN — publicidad">
+              <span class="kinetic-overlay"><b>02</b><em>BPN</em></span>
+            </a>
+            <a class="kinetic-item" href="https://www.behance.net/gallery/254953643/Diseno-web-Mzr-Col" target="_blank" rel="noopener">
+              <img src="assets/asset-06-97e46f1e62f6.jpg" alt="MZR — diseño web">
+              <span class="kinetic-overlay"><b>03</b><em>MZR / WEB</em></span>
+            </a>
+            <a class="kinetic-item" href="https://www.behance.net/gallery/254760591/Guacharas" target="_blank" rel="noopener">
+              <img src="assets/asset-08-9c3acd2881b5.jpg" alt="Guácharas de Monagas — identidad deportiva">
+              <span class="kinetic-overlay"><b>04</b><em>GUÁCHARAS</em></span>
+            </a>
+            <a class="kinetic-item" href="https://www.behance.net/gallery/254791477/MZR-RIDE-MTB" target="_blank" rel="noopener">
+              <img src="assets/asset-05-315540d324fb.jpg" alt="MZR Ride MTB — campaña deportiva">
+              <span class="kinetic-overlay"><b>05</b><em>MZR / RIDE</em></span>
+            </a>
+            <a class="kinetic-item" href="https://www.behance.net/gallery/189296699/MANZUR-COL" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+              <img src="assets/asset-02-89e6c286ee7a.jpg" alt="">
+              <span class="kinetic-overlay"><b>01</b><em>MANZUR</em></span>
+            </a>
+            <a class="kinetic-item" href="https://www.behance.net/gallery/254763071/bnp" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+              <img src="assets/asset-04-ae46e2b7869a.jpg" alt="">
+              <span class="kinetic-overlay"><b>02</b><em>BPN</em></span>
+            </a>
+            <a class="kinetic-item" href="https://www.behance.net/gallery/254953643/Diseno-web-Mzr-Col" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+              <img src="assets/asset-06-97e46f1e62f6.jpg" alt="">
+              <span class="kinetic-overlay"><b>03</b><em>MZR / WEB</em></span>
+            </a>
+            <a class="kinetic-item" href="https://www.behance.net/gallery/254760591/Guacharas" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+              <img src="assets/asset-08-9c3acd2881b5.jpg" alt="">
+              <span class="kinetic-overlay"><b>04</b><em>GUÁCHARAS</em></span>
+            </a>
+            <a class="kinetic-item" href="https://www.behance.net/gallery/254791477/MZR-RIDE-MTB" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+              <img src="assets/asset-05-315540d324fb.jpg" alt="">
+              <span class="kinetic-overlay"><b>05</b><em>MZR / RIDE</em></span>
+            </a>
+          </div>
+        </div>
+        <div class="kinetic-foot"><span>BRANDING × DIGITAL × CAMPAIGN</span><span>SEAMLESS MOTION STUDY</span></div>
+      </div>
 
       <div class="grid reveal">
 
@@ -956,7 +898,7 @@
             o contenido visual — empecemos por el problema que necesitas resolver.
           </p>
           <div class="work-cta">
-            <a class="btn" href="https://wa.me/573222806356?text=Hola%20Manuel%2C%20vi%20tu%20portfolio%20de%20a.estudiocreativo%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener noreferrer" aria-label="Iniciar una conversación por WhatsApp">
+            <a class="btn" href="https://wa.me/573222806356?text=Hola%20Manuel%2C%20vi%20tu%20portfolio%20de%20estudiocreativo%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener noreferrer" aria-label="Iniciar una conversación por WhatsApp">
               Iniciar una conversación por WhatsApp
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
             </a>
@@ -979,7 +921,7 @@
           </div>
           <div class="contact-row">
             <span class="label">WhatsApp</span>
-            <a href="https://wa.me/573222806356?text=Hola%20Manuel%2C%20vi%20tu%20portfolio%20de%20a.estudiocreativo%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener noreferrer">+57 322 280 6356</a>
+            <a href="https://wa.me/573222806356?text=Hola%20Manuel%2C%20vi%20tu%20portfolio%20de%20estudiocreativo%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener noreferrer">+57 322 280 6356</a>
           </div>
         </div>
       </div>
@@ -987,137 +929,6 @@
   </section>
 
 </main>
-
-<main id="motion-ia">
-  <section class="mo-hero">
-    <div class="wrap">
-      <a class="mo-back" href="#services">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        Volver a servicios
-      </a>
-    </div>
-    <div class="wrap mo-hero-grid">
-      <div>
-        <h1 class="mo-title">Motion / IA</h1>
-        <p class="mo-lead">
-          Ensayos donde pruebo cómo una imagen fija cambia de forma. Parto de un storyboard y lo llevo a
-          movimiento con flujos de IA. El hilo común: papel, origami y mariposas que se deshacen y vuelven
-          a formar un rostro.
-        </p>
-        <div class="mo-jump">
-          <a href="#ensayo-origami">Papel y origami</a>
-          <a href="#ensayo-malla">Retrato y malla</a>
-        </div>
-      </div>
-      <figure class="mo-portrait">
-        <img src="assets/asset-11-0177f11b39cc.webp" alt="Retrato de un hombre con barba hecho de papel doblado, con camiseta de patrón geométrico" width="640" height="1198">
-      </figure>
-    </div>
-  </section>
-
-  <article class="mo-essay" id="ensayo-origami">
-    <div class="wrap">
-      <div class="mo-head">
-        <h2>De una bola de papel a un retrato</h2>
-        <p>
-          Una bola de papel arrugado se despliega hasta formar un busto de origami en tonos cálidos,
-          que al final se deshace en mariposas.
-        </p>
-      </div>
-      <figure class="mo-fig mo-wide">
-        <div class="mo-frame">
-            <video muted loop playsinline preload="metadata" tabindex="0" aria-label="Papel arrugado que se transforma en origami" poster="assets/asset-12-5261204ea910.jpg" src="assets/asset-13-0f7e1a57e2fb.mp4"></video>
-            <button class="mo-sound" type="button" aria-pressed="false" aria-label="Activar sonido de Papel arrugado que se transforma en origami">
-              <svg class="off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
-              <svg class="on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
-            </button>
-          </div>
-        <figcaption><strong>Papel a origami</strong>10 s · horizontal</figcaption>
-      </figure>
-      <div class="mo-board">
-        <button class="mo-board-img" type="button" data-lightbox aria-label="Ampliar storyboard en color">
-          <img src="assets/asset-14-9c345f468787.jpg" alt="Storyboard en color de nueve cuadros: papel arrugado, retrato de origami, fragmentación y mariposas sobre fondo negro" width="1600" height="1600">
-        </button>
-        <div class="mo-board-copy">
-          <h3>El guion en color</h3>
-          <p>
-            Nueve cuadros que fijan el recorrido antes de animar: las bolas de papel, el retrato completo,
-            el momento en que se fragmenta y las mariposas que quedan flotando sobre el fondo negro.
-          </p>
-          <p class="mo-hint">Toca la imagen para verla en grande.</p>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <article class="mo-essay" id="ensayo-malla">
-    <div class="wrap">
-      <div class="mo-split">
-      <div class="mo-head">
-        <h2>Un rostro de papel que se vuelve malla</h2>
-        <p>
-          El retrato en papel blanco se fragmenta en mariposas y se recompone. En el otro extremo del guion,
-          la cabeza queda reducida a una estructura metálica que gira sobre su eje.
-        </p>
-      </div>
-      <div class="mo-pair">
-        <figure class="mo-fig">
-          <div class="mo-frame">
-            <video muted loop playsinline preload="metadata" tabindex="0" aria-label="Fragmentos de papel que forman un retrato" poster="assets/asset-15-98626eeef309.jpg" src="assets/asset-16-7fcf71bb7117.mp4"></video>
-            <button class="mo-sound" type="button" aria-pressed="false" aria-label="Activar sonido de Fragmentos de papel que forman un retrato">
-              <svg class="off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
-              <svg class="on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
-            </button>
-          </div>
-          <figcaption><strong>Fragmentos que forman un retrato</strong>10 s · vertical</figcaption>
-        </figure>
-        <figure class="mo-fig">
-          <div class="mo-frame">
-            <video muted loop playsinline preload="metadata" tabindex="0" aria-label="Cabeza de malla metálica girando" poster="assets/asset-17-8c6497fbc441.jpg" src="assets/asset-18-f3f34379c0cc.mp4"></video>
-            <button class="mo-sound" type="button" aria-pressed="false" aria-label="Activar sonido de Cabeza de malla metálica girando">
-              <svg class="off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
-              <svg class="on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
-            </button>
-          </div>
-          <figcaption><strong>Cabeza en malla metálica</strong>10 s · vertical</figcaption>
-        </figure>
-      </div>
-      </div>
-      <div class="mo-board">
-        <button class="mo-board-img" type="button" data-lightbox aria-label="Ampliar storyboard en blanco y negro">
-          <img src="assets/asset-19-e6014c7a4de5.jpg" alt="Storyboard en blanco y negro de nueve cuadros: busto poligonal de papel que se disuelve en mariposas y termina como una malla de líneas" width="1600" height="1600">
-        </button>
-        <div class="mo-board-copy">
-          <h3>El guion en blanco y negro</h3>
-          <p>
-            Un busto poligonal se abre por la mitad, se disuelve en mariposas de papel y deja al final
-            solo una retícula de líneas. Es la secuencia que ordena las dos animaciones de arriba.
-          </p>
-          <p class="mo-hint">Toca la imagen para verla en grande.</p>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <section class="mo-cta">
-    <div class="wrap">
-      <h2>¿Un proyecto que pida movimiento?</h2>
-      <p>Cuéntame la idea y vemos cómo llevarla de la página al movimiento.</p>
-      <div class="work-cta">
-        <a class="btn" href="mailto:al3millan@gmail.com">
-          Iniciar una conversación
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-        </a>
-        <a class="btn ghost" href="#services">Volver a servicios</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<div class="mo-lb" id="moLightbox" role="dialog" aria-modal="true" aria-label="Storyboard ampliado">
-  <button class="mo-lb-close" type="button" id="moLbClose" aria-label="Cerrar">×</button>
-  <img id="moLbImg" src="" alt="">
-</div>
 
 <!-- QUICK VIEW MODAL -->
 <div class="qv-overlay" id="qvOverlay">
@@ -1143,9 +954,9 @@
 </div>
 
 <footer>
-  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:12px;">
-    <span>a.estudiocreativo — Manuel Alejandro Millán · Dirección Creativa / Diseño Visual</span>
-    <span>Remoto · Freelance · Basado en contenido real de Behance</span>
+  <div class="wrap footer-inner">
+    <div class="footer-brand"><img src="assets/a-estudiocreativo-logo.svg" alt="Ícono a."><span><span>estudio</span><span class="footer-word-accent">creativo</span> · Manuel Alejandro Millán</span></div>
+    <span>Dirección Creativa / Diseño Visual · Remoto · Freelance</span>
   </div>
 </footer>
 
@@ -1386,105 +1197,6 @@
   } catch (err) {}
 </script>
 
-<script>
-  // Motion / IA page — view switching, video playback, lightbox
-  (function(){
-    var body = document.body;
-    var page = document.getElementById('motion-ia');
-    var homeTitle = document.title;
-    var vids = page ? page.querySelectorAll('video') : [];
 
-    function isMotion(h){ return h === '#motion-ia'; }
-
-    function route(h){
-      h = h || location.hash;
-      var was = body.classList.contains('view-motion');
-      var now = isMotion(h);
-      body.classList.toggle('view-motion', now);
-      document.title = now ? 'Motion / IA — a.estudiocreativo' : homeTitle;
-      if (now) {
-        window.scrollTo(0, 0);
-      } else {
-        vids.forEach(function(v){ v.pause(); });
-        if (was) {
-          var t = null;
-          try { t = h ? document.querySelector(h) : null; } catch(e) {}
-          if (t) { t.scrollIntoView(); } else { window.scrollTo(0, 0); }
-        }
-      }
-    }
-
-    function go(h){
-      try { location.hash = h; } catch(e) {}
-      route(h);
-    }
-
-    document.addEventListener('click', function(e){
-      var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
-      if (!a) return;
-      var h = a.getAttribute('href');
-      if (h === '#motion-ia') { e.preventDefault(); go(h); return; }
-      if (body.classList.contains('view-motion')) {
-        var t = null;
-        try { t = document.querySelector(h); } catch(err) {}
-        if (t && page.contains(t)) return;   // jump link inside the Motion page: native scroll
-        e.preventDefault(); go(h);            // nav / logo / back links: return to the main page
-      }
-    });
-    window.addEventListener('hashchange', function(){ route(); });
-    route();
-
-    // Videos: play only while visible; sound is opt-in
-    vids.forEach(function(v){
-      var frame = v.closest('.mo-frame');
-      var btn = frame ? frame.querySelector('.mo-sound') : null;
-      if (prefersReduced) { v.controls = true; }
-      function toggle(){
-        if (v.paused) { v.dataset.userPaused = ''; delete v.dataset.userPaused; v.play().catch(function(){}); }
-        else { v.dataset.userPaused = '1'; v.pause(); }
-      }
-      v.addEventListener('click', toggle);
-      v.addEventListener('keydown', function(e){ if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); } });
-      if (btn) btn.addEventListener('click', function(){
-        v.muted = !v.muted;
-        btn.setAttribute('aria-pressed', v.muted ? 'false' : 'true');
-        btn.setAttribute('aria-label', (v.muted ? 'Activar' : 'Silenciar') + ' sonido de ' + v.getAttribute('aria-label'));
-        if (!v.muted && v.paused) { delete v.dataset.userPaused; v.play().catch(function(){}); }
-      });
-    });
-    try {
-      if (!prefersReduced && vids.length) {
-        var io = new IntersectionObserver(function(entries){
-          entries.forEach(function(en){
-            var v = en.target;
-            if (en.isIntersecting && body.classList.contains('view-motion') && !v.dataset.userPaused) {
-              var p = v.play(); if (p && p.catch) p.catch(function(){});
-            } else { v.pause(); }
-          });
-        }, { threshold: 0.35 });
-        vids.forEach(function(v){ io.observe(v); });
-      }
-    } catch(err) {}
-
-    // Lightbox for storyboards
-    var lb = document.getElementById('moLightbox');
-    var lbImg = document.getElementById('moLbImg');
-    var lbClose = document.getElementById('moLbClose');
-    var lastFocus = null;
-    function openLb(btn){
-      var img = btn.querySelector('img');
-      lbImg.src = img.src; lbImg.alt = img.alt;
-      lastFocus = btn; lb.classList.add('open'); lbClose.focus();
-    }
-    function closeLb(){
-      lb.classList.remove('open'); lbImg.src = '';
-      if (lastFocus) lastFocus.focus();
-    }
-    document.querySelectorAll('[data-lightbox]').forEach(function(b){ b.addEventListener('click', function(){ openLb(b); }); });
-    lbClose.addEventListener('click', closeLb);
-    lb.addEventListener('click', function(e){ if (e.target === lb) closeLb(); });
-    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && lb.classList.contains('open')) closeLb(); });
-  })();
-</script>
 </body>
 </html>
